@@ -7,10 +7,12 @@
 <h1 class="page-title"><%= @city. name %></h1>
 <div class="content-grid">
   <%@reviews.each do |review| %>
-<div class="content-image"><%= image_tag @city.picture.url(:medium) %></div>
+  <%= link_to review_path(review) do %>
+    <div class="content-image"><%= image_tag @city.picture.url(:medium) %></div>
 
-<div class="content-title"><%=review.title %></div>
-</div>
-<%end%>
+      <div class="content-title"><%=review.title %></div>
+    </div>
+    <%end%>
+  <%end%>
 <%= link_to 'Edit', edit_city_path(@city) %> |
 <%= link_to 'Back', cities_path %>
